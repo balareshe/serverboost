@@ -16,7 +16,7 @@ bash <(curl -sSL https://shell.umrc.cn/scripts/serverboost.sh || wget -q https:/
 ```
 > 原理：`wget -O -` 将脚本内容直接输出到终端，通过管道交给 `sudo bash` 执行，全程无需人工干预，适合快速操作。
 > 
-##命令参考
+## 命令参考
 启动菜单
 v3.1
 sudo serverboost
