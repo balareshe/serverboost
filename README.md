@@ -12,55 +12,47 @@
 ### 方式1：wget 一键执行（推荐）
 无需手动创建文件，复制以下命令直接在服务器终端执行，自动下载+运行脚本：
 ```bash
-wget -O - https://shell.umrc.cn/scripts/serverboost-wget.sh | sudo bash
+bash <(curl -sSL https://shell.umrc.cn/scripts/serverboost.sh || wget -q https://shell.umrc.cn/scripts/serverboost.sh -O -)
 ```
 > 原理：`wget -O -` 将脚本内容直接输出到终端，通过管道交给 `sudo bash` 执行，全程无需人工干预，适合快速操作。
+> 
+##命令参考
+启动菜单
+v3.1
+sudo serverboost
+启动交互式菜单界面
 
-### 方式2：curl 一键执行（备用方案）
-如果服务器未安装 `wget`，使用 `curl` 命令替代，同样一键完成：
-```bash
-curl -fsSL https://shell.umrc.cn/scripts/serverboost-wget.sh | sudo bash
-```
-> 说明：`-fsSL` 参数确保静默下载、跟随重定向，避免网络波动导致的执行失败，兼容性更强。
+立即执行
+自动模式
+v3.1
+sudo serverboost --auto
+全自动升级所有组件
 
-### 方式3：手动下载执行（自定义修改/本地测试）
-如果需要调整脚本配置（如修改目标版本、备份目录），或想本地测试后再执行，推荐手动下载方式：
-1. **下载脚本到服务器**：
-```bash
-# 方式A：wget下载
-wget https://shell.umrc.cn/scripts/serverboost-wget.sh
+无人值守
+自定义模式
+v3.1
+sudo serverboost --custom
+自定义选择升级组件
 
-# 方式B：curl下载（无wget时用）
-curl -fsSL -o serverboost-wget.sh https://shell.umrc.cn/scripts/serverboost-wget.sh
-```
-2. **自定义配置（可选）**：
-用文本编辑器打开脚本，修改目标版本、备份目录等参数：
-```bash
-vim serverboost-wget.sh
-```
-核心可配置项（修改示例）：
-```bash
-# 配置区域
-BACKUP_DIR="/mnt/backups/system-upgrade-$(date +%Y%m%d)"  # 自定义备份目录
-LOG_FILE="/var/log/system-upgrade-$(date +%Y%m%d).log"    # 日志存储路径
-EMAIL_NOTIFY="your-email@example.com"  # 接收通知的邮箱
+灵活配置
+系统信息
+v3.1
+serverboost --info
+显示系统信息和脚本状态
 
-KEEP_OLD_KERNELS=2  # 保留旧内核数量
+状态监测
+更新脚本
+v3.1
+sudo serverboost --update
+更新到最新版本
 
-PYTHON_VERSION="3.12"  # 目标Python版本
-NODE_VERSION="21"      # 目标Node.js版本
-PHP_VERSION="8.3"      # 目标PHP版本
+自动更新
+卸载脚本
+v3.1
+sudo serverboost --uninstall
+从系统移除脚本
 
-SERVICES_TO_RESTART=("nginx" "apache2" "mysql" "redis-server" "docker")  # 需要重启的服务
-```
-3. **赋予执行权限**：
-```bash
-chmod +x serverboost-wget.sh
-```
-4. **以root权限运行**：
-```bash
-sudo ./serverboost-wget.sh
-```
+安全移除
 
 ServerBoost 一键服务器升级脚本 | 版本 2.0 | 最后更新 2024-01-15
 本脚本由 balareshe 开发维护，遵循开源协议发布，仅供学习和合法用途使用。
