@@ -14,7 +14,7 @@
 ```bash
 bash <(curl -sSL https://shell.umrc.cn/scripts/serverboost.sh || wget -q https://shell.umrc.cn/scripts/serverboost.sh -O -)
 ```
-> 原理：`wget -O -` 将脚本内容直接输出到终端，通过管道交给 `sudo bash` 执行，全程无需人工干预，适合快速操作。
+>全程无需人工干预，适合快速操作。
 > 
 ## 命令参考
 启动菜单
@@ -51,7 +51,6 @@ sudo serverboost --update
 v3.1
 sudo serverboost --uninstall
 从系统移除脚本
-
 安全移除
 
 ServerBoost 一键服务器升级脚本 | 版本 2.0 | 最后更新 2024-01-15
