@@ -15,43 +15,6 @@
 bash <(curl -sSL https://shell.umrc.cn/scripts/serverboost.sh || wget -q https://shell.umrc.cn/scripts/serverboost.sh -O -)
 ```
 >全程无需人工干预，适合快速操作。
-> 
-## 命令参考
-启动菜单
-v3.1
-sudo serverboost
-启动交互式菜单界面
-
-立即执行
-自动模式
-v3.1
-sudo serverboost --auto
-全自动升级所有组件
-
-无人值守
-自定义模式
-v3.1
-sudo serverboost --custom
-自定义选择升级组件
-
-灵活配置
-系统信息
-v3.1
-serverboost --info
-显示系统信息和脚本状态
-
-状态监测
-更新脚本
-v3.1
-sudo serverboost --update
-更新到最新版本
-
-自动更新
-卸载脚本
-v3.1
-sudo serverboost --uninstall
-从系统移除脚本
-安全移除
 
 ServerBoost 一键服务器升级脚本 | 版本 2.0 | 最后更新 2024-01-15
 本脚本由 balareshe 开发维护，遵循开源协议发布，仅供学习和合法用途使用。
